@@ -1,7 +1,17 @@
-import express from 'express'
-import{} from "../controllers/auth.js"
 
+import mongoose from "mongoose"
+import bcrypt from "bcryptjs"
+import User from '../Models/User.js'
+export const signup = async (req,res)=>{
+try{
+    const salt = bcrypt.genSaltSync(10);
+const hash = bcrypt.hashSync(req.body.password, salt);
 
-const router = express.Router()
+const newUser = new User({...req.body, password:hash})
 
-export default router
+await newUser.save()
+res.status(200).send("User has been created")
+}catch(err){
+
+}
+}
