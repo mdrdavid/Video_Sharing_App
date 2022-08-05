@@ -12,6 +12,6 @@ router.post("/signup", signup)
 router.post("/signin",)
 
 //GOOGLE AUTH
-router.post("google",)
+router.post("/google",)
 
 export default router

@@ -1,7 +1,7 @@
 
 import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
-import User from '../Models/User.js'
+import User from '../models/User.js'
 export const signup = async (req,res)=>{
 try{
     const salt = bcrypt.genSaltSync(10);

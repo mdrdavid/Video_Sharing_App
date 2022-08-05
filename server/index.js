@@ -22,10 +22,12 @@ app.use(express.json())
 app.use("api/auth", authRoutes)
 app.use("api/users", useRoutes)
 app.use("api/videos", videoRoutes)
-app.use("api/comment", commentRoutes)
+app.use("api/comments", commentRoutes)
 
 
-app.listen(5000,()=>{
+
+const PORT = 8080
+app.listen(PORT,()=>{
     connect()
-console.log("server running on port 5000")
+console.log(`server running on port ${PORT}`)
 })
