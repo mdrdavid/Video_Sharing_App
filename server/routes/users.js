@@ -1,9 +1,25 @@
 import express from 'express'
-import{test} from "../controllers/user.js"
+import{ deleteUser, dislike, getUser, like, subscribe, unsubscribe, update } from "../controllers/user.js"
+import { verifyToken } from '../verifyToken.js'
 
 
 const router = express.Router()
+//update User
+router.put("/:id", verifyToken, update)
 
-router.get("/test", test)
+
+//delete User
+router.delete("/:id", verifyToken, deleteUser)
+//get User
+router.get("/find/:id", getUser)
+//sunscribe a  User
+router.put("/sub/:id", verifyToken, subscribe)
+//unsubscribe a User
+router.put("/unsub:id", verifyToken, unsubscribe)
+//like  a Video
+router.put("/like/:videoId", verifyToken, like)
+//dislike  a Video
+router.put("/dislike:videoId", verifyToken, dislike)
+
 
 export default router
