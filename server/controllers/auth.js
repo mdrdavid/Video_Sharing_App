@@ -2,6 +2,7 @@
 import mongoose from "mongoose"
 import bcrypt from "bcryptjs"
 import User from '../models/User.js'
+import { Jwt } from "jsonwebtoken";
 import { createError } from "../error.js";
 
 export const signup = async (req,res, next)=>{
@@ -43,6 +44,7 @@ export const signin = async (req,res, next)=>{
                 res.status(200).send("User registered, please login")
             } 
         })
+
             // else{
             //     const salt = bcrypt.genSaltSync(10);
             //     const hash = bcrypt.hashSync(req.body.password, salt);
@@ -50,7 +52,7 @@ export const signin = async (req,res, next)=>{
             //     await newUser.save()
             //     res.status(200).send("User has been created")
             // }
-       
+            const token = jwt.sign({id:User._id})
     }catch(err){
         console.log(err)
         next(createError(404,"Not found!"))
