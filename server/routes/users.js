@@ -12,7 +12,7 @@ router.put("/:id", verifyToken, update)
 router.delete("/:id", verifyToken, deleteUser)
 //get User
 router.get("/find/:id", getUser)
-//sunscribe a  User
+//subscribe a  User
 router.put("/sub/:id", verifyToken, subscribe)
 //unsubscribe a User
 router.put("/unsub:id", verifyToken, unsubscribe)
