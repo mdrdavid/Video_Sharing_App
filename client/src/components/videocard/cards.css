@@ -1,0 +1,54 @@
+
+.container{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 45px;
+    width: 360px;
+    cursor: pointer;
+}
+
+.video{
+    width: 100%;
+  height:  "202px";
+  background-color: #999;
+  flex: 1;
+}
+
+.video-detail{
+    display: flex;
+  margin-top: 6px;
+  gap: 12px;
+  flex: 1;
+}
+
+.channel-image{
+    width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #999;
+  display: none;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.video-title{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+.channel-name{
+    font-size: 14px;
+  color: black;
+  margin: 9px 0px;
+
+}
+
+.info{
+    font-size: 14px;
+    color: black;
+}
