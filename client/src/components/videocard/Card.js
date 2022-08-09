@@ -4,7 +4,7 @@ import "./cards.css"
 import {format} from "timeago.js"
 import axios from "axios"
 import { useEffect,useState } from "react"
-// import david from "../../assets/david.jpg"
+
 
 const Card =({type, video})=>{
     const [channel, setChannel] = useState({})
@@ -25,7 +25,8 @@ const Card =({type, video})=>{
                     <img src={video.imgUrl} style={{height: "100%", width: "100%"}} alt="video"/>
                 </div>
                 <div className="video-details">
-                    <div className="channel-image">{channel.img}</div>
+                    <div className="channel-image">
+                        <img src={channel.img} alt=""/></div>
                     <div className="detail">
                     <div className="video-title">{video.title}</div>
                     <div className="channel-name">{channel.name}</div>
