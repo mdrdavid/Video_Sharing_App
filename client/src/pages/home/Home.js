@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import Card from "../components/videocard/Card"
+import Card from "../../components/videocard/Card"
 import "./home.css"
-import NavBar from '../components/navbar/NavBar'
-import Menu from '../components/sidemenu/Menu'
+import NavBar from '../../components/navbar/NavBar'
+import Menu from '../../components/sidemenu/Menu'
 
 const Home = ({type}) => {
     const [videos, setVideos] = useState([])
