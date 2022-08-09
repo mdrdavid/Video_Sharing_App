@@ -23,7 +23,7 @@ const Home = ({type}) => {
                 <Menu />
                 <div className='video-container'>
                     {videos.map((video) => (
-                        <Card />
+                        <Card key={video._id} video={video}/>
                     ))}
 
                 </div>
