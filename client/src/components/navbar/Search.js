@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {AiOutlineSearch} from "react-icons/ai"
 import "./navbar.css"
 
 const Search =() => {
@@ -19,6 +20,7 @@ const Search =() => {
         value ={data.search}
         name="search"
         onChange = {handleChange}/>
+        <AiOutlineSearch className='input-icon'/>
     </div>
   )
 }
