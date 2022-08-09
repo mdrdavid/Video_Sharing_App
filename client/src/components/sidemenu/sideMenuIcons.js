@@ -20,6 +20,7 @@ import { SiSololearn } from "react-icons/si";
 import { FaAppleAlt } from "react-icons/fa";
 import { HiOutlineDocumentReport } from "react-icons/hi";
 import { MdOutlineReport } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const getIcon = (iconName) => {
   let icon = null;
@@ -28,10 +29,10 @@ const getIcon = (iconName) => {
       icon = <AiFillHome />
       break;
     case "explore":
-      icon = <MdExplore />;
+      icon = <Link to="trends"><MdExplore /></Link>;
       break;
     case "subscription":
-      icon = <MdOutlineSubscriptions />;
+      icon = <Link to="subscriptions"><MdOutlineSubscriptions /></Link>;
       break;
     case "library":
       icon = <MdOutlineVideoLibrary />

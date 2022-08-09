@@ -2,7 +2,7 @@
 .sidebar{
     background-color: white;
     color: black;
-    flex: 1;
+    /* flex: 1; */
     justify-content: flex-start;
     flex-direction: column;
     width: 20%;

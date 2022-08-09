@@ -2,10 +2,10 @@
 import React from "react";
 import "./menu.css";
 import { Sidelinks } from "../sidemenu/sideMenuIcons"
-import Logo from "../navbar/Logo";
+
 
 const sideBarLinks = {
-  home: [{ name: "Home", icon: "home" }, { name: "Explore", icon: "explore" },
+  home: [{ name: "Home", icon: "home" }, { name: "Explore", icon: "explore" ,link:"type"},
   { name: "Subscription", icon: "subscription" },],
   library: [{ name: "Library", icon: "library" }, { name: "History", icon: "history" },
   { name: "WatchLater", icon: "watch" }, { name: "Liked Videos", icon: "videos" },
@@ -37,7 +37,6 @@ const Menu = () => {
   return (
     <>
       <div className="sidebar">
-          <Logo/>
         {generateLinkContiner()}
       </div>
     </>

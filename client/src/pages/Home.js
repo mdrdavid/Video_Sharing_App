@@ -2,25 +2,34 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import Card from "../components/videocard/Card"
 import "./home.css"
+import NavBar from '../components/navbar/NavBar'
+import Menu from '../components/sidemenu/Menu'
 
-const Home =() =>{
+const Home = ({type}) => {
     const [videos, setVideos] = useState([])
 
-    useEffect(()=>{
-        const fetchVideos = async ()=>{
-        const res = await axios.get("videos/random")
-        setVideos(res.data)
+    useEffect(() => {
+        const fetchVideos = async () => {
+            const res = await axios.get(`videos/${type}`)
+            setVideos(res.data)
         }
         fetchVideos()
-    },[])
-    
-  return (
-    <div className='container'>
-        {videos.map((video)=>(
-             <Card/>
-        ))}
-   
-    </div>
-  )
+    }, [type])
+
+    return (
+        <div>
+            <NavBar />
+            <div className="my-container">
+                <Menu />
+                <div className='video-container'>
+                    {videos.map((video) => (
+                        <Card />
+                    ))}
+
+                </div>
+            </div>
+
+        </div>
+    )
 }
 export default Home

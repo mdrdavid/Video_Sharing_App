@@ -1,8 +1,9 @@
 
-.container{
+.card-container{
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    margin-bottom: 45px;
+    margin-bottom: 20px;
     width: 360px;
     cursor: pointer;
 }
@@ -15,6 +16,7 @@
 }
 
 .video-detail{
+  width: 100%;
     display: flex;
   margin-top: 6px;
   gap: 12px;
