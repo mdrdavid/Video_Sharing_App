@@ -4,20 +4,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 56px);
+  margin-top: 10px;
+  overflow: auto;
 }
 
 .wrapper{
     display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: purple;
+  background-color: transparent;
+  color: black;
   border: 1px solid black;
+  border-radius: 5px;
   padding: 20px 50px;
   gap: 10px;
 }
-.h5{
+
+.title h5{
     font-size: 24px;
+   margin-top: 10px;
 }
 p{
     font-size: 20px;
@@ -31,7 +36,7 @@ p{
   margin: 2px;
   background-color: transparent;
   width: 100%;
-  color: white;
+  color: black;
 }
 
 .signin-button{
@@ -41,7 +46,7 @@ p{
   padding: 10px 10px;
   font-weight: 500;
   cursor: pointer;
-  background-color: purple;
+  background-color: dodgerblue;
   color: white;
   width: 60%;
 }
@@ -66,6 +71,6 @@ p{
 .links{
     margin-left: 50px;
 }
-.links{
+.link{
     margin-left: 30px;
 }

@@ -1,12 +1,17 @@
 import React from 'react'
 import "./signin.css"
+import NavBar from '../../components/navbar/NavBar'
 
 const SignIn = () => {
     return (
+        <>
+        <NavBar/>
         <div className='container'>
-            <div className='wraper'>
+            <div className='wrapper'>
+                <div className='title'>
                 <h5>Sign in </h5>
                 <p>to continue to lama video</p>
+                </div>
                 <input type="text" className='input' placeholder="user name" />
                 <input type="password" className='input' placeholder="password" />
                 <button type='submit' className='signin-button'>Sign in</button>
@@ -29,6 +34,7 @@ const SignIn = () => {
                 </div>
             </div >
         </div>
+        </>
     )
 }
 export default SignIn
