@@ -14,7 +14,7 @@ const Search =() => {
   return (
     <div className='search'>
         <input 
-        className='input'
+        className='search-input'
         type="text" 
         placeholder ="search"
         value ={data.search}
