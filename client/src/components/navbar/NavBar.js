@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 
 const NavBar =()=>{
     return(
-        <div className="container">
+        <div className="nav-container">
              <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <Logo/>
             </Link>
