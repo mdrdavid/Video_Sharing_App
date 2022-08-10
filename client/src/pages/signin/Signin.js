@@ -1,8 +1,59 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./signin.css"
 import NavBar from '../../components/navbar/NavBar'
+import axios from 'axios'
 
 const SignIn = () => {
+    const [name, setName]= useState("")
+    const [password, setPassword]= useState("")
+
+    const [value, setValue]= useState({
+        user_name: "", 
+        user_email: "", 
+        user_password: ""
+    })
+
+    const handelName =(e)=>{
+        setName(e.target.value)
+    }
+    const handlePassword =(e)=>{
+        setPassword(e.target.value)
+    }
+    const handleChange=(e)=>{
+        setValue((prev)=>({...prev, [e.target.name]: e.target.value}))
+    }
+    
+    const handleSignUp =(e)=>{
+        e.preventDefault()
+        const message ="you are signed up"
+        if(value.user_password==="" || value.user_email==="" || value.user_name === ""){
+            alert("complete sigin up form")
+        } else{
+            alert(message)
+            setValue( {user_name: "", user_email: "", user_password: ""})
+        }
+    }
+    const handleLogin = async (e)=>{
+        e.preventDefault()
+        const message ="Login successful"
+        try{
+            const res = await axios.post("/auth/signin",{name, password})
+            console.log(res.data)
+            // if(value.password <3){
+            //     alert("Invalid password")
+            // } else{
+            //     alert(message)
+            setName('')
+            setPassword('')
+            //     setValue( {name: "", email: "", password: ""})
+
+            // }
+        }catch(err){
+            // next(err)
+        }
+   
+    }
+
     return (
         <>
         <NavBar/>
@@ -12,16 +63,41 @@ const SignIn = () => {
                 <h5>Sign in </h5>
                 <p>to continue to lama video</p>
                 </div>
-                <input type="text" className='input' placeholder="user name" />
-                <input type="password" className='input' placeholder="password" />
-                <button type='submit' className='signin-button'>Sign in</button>
+                <input type="text" 
+                name ="name" 
+                className='input'
+                 placeholder="user name" 
+                 value={name}
+                 onChange={handelName}/>
+                <input type="password" 
+                name="password" 
+                className='input' 
+                placeholder="password" 
+                value={password}
+                 onChange={handlePassword}/>
+                <button type='submit' className='signin-button' onClick={handleLogin}>Sign in</button>
 
                 <h5>or</h5>
                 <div className='alt_login'>
-                    <input type="text" className='alt_input' placeholder="username" />
-                    <input type="text" className='alt_input' placeholder="email" />
-                    <input type="password" className='alt_input' placeholder="password" />
-                    <button type="submit" className='signin-button'>Sign up</button>
+                    <input type="text" 
+                    name ="user_name" 
+                    className='alt_input' 
+                    placeholder="username" 
+                    value={value.user_name}
+                 onChange={handleChange}/>
+                    <input type="text" 
+                    name ="user_email" 
+                    className='alt_input' 
+                    placeholder="email" 
+                    value={value.user_email}
+                 onChange={handleChange}/>
+                    <input type="password" 
+                    name ="user_password" 
+                    className='alt_input' 
+                    placeholder="password" 
+                    value={value.user_password}
+                 onChange={handleChange}/>
+                    <button type="submit" className='signin-button' onClick={handleSignUp}>Sign up</button>
                 </div>
 
             </div>
