@@ -2,10 +2,14 @@ import React,{useState} from 'react'
 import "./signin.css"
 import NavBar from '../../components/navbar/NavBar'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
 
 const SignIn = () => {
     const [name, setName]= useState("")
     const [password, setPassword]= useState("")
+
+    const dispatch =useDispatch()
 
     const [value, setValue]= useState({
         user_name: "", 
@@ -34,10 +38,12 @@ const SignIn = () => {
         }
     }
     const handleLogin = async (e)=>{
+        dispatch(loginStart())
         e.preventDefault()
         const message ="Login successful"
         try{
             const res = await axios.post("/auth/signin",{name, password})
+            dispatch(loginSuccess(res.data))
             console.log(res.data)
             // if(value.password <3){
             //     alert("Invalid password")
@@ -49,7 +55,7 @@ const SignIn = () => {
 
             // }
         }catch(err){
-            // next(err)
+           dispatch(loginFailure())
         }
    
     }
