@@ -66,3 +66,17 @@
 .link{
     text-decoration: none;
 }
+
+.user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.avator{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #999;
+}
