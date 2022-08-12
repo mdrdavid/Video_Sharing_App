@@ -10,23 +10,26 @@ const Button = () => {
     const {currentUser} = useSelector(state=>state.user)
     return (
         <>
-        {currentUser ? (
+        {/* {currentUser ? (
             <div className="user">
                 <MdMissedVideoCall/>
             <div className ="avator">
                 <FaUserAlt/>
                 </div>
+                {currentUser.name}
             </div>
         ) :
-        (
+        ( */}
+
             <Link to="/signin" className="link">
             <button className='button'>
                 <MdOutlineAccountCircle />
                 SIGN IN
             </button>
         </Link>
-        )
-    }
+
+        {/* )
+    } */}
         </>
     )
 }
