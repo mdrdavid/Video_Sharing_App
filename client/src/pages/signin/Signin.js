@@ -4,6 +4,8 @@ import NavBar from '../../components/navbar/NavBar'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
+import { auth, provider } from '../../firebase'
+import { signInWithPopup } from 'firebase/auth'
 
 const SignIn = () => {
     const [name, setName]= useState("")
@@ -60,6 +62,22 @@ const SignIn = () => {
    
     }
 
+        const signInWithGoogle =()=>{
+            dispatch(loginStart())
+            signInWithPopup(auth, provider)
+            .then((result)=>{
+                axios.post("/auth/google",{
+                name: result.user.displayName,
+                email: result.user.email,
+                img: result.user.photoURL
+            }).then((res)=>{
+                dispatch(loginSuccess(res.data))
+            })
+            })
+            .catch((error)=>{
+                dispatch(loginFailure())
+            })
+        }
     return (
         <>
         <NavBar/>
@@ -84,6 +102,8 @@ const SignIn = () => {
                 <button type='submit' className='signin-button' onClick={handleLogin}>Sign in</button>
 
                 <h5>or</h5>
+                <button className="button" onClick={signInWithGoogle}>Sign in with Google</button>
+                <h>or</h>
                 <div className='alt_login'>
                     <input type="text" 
                     name ="user_name" 

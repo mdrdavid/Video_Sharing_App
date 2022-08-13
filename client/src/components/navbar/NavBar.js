@@ -6,7 +6,7 @@ import Search from "./Search"
 import {Link} from "react-router-dom"
 import { useSelector } from "react-redux"
 import {MdMissedVideoCall} from "react-icons/md"
-import {FaUserAlt} from "react-icons/fa"
+// import {FaUserAlt} from "react-icons/fa"
 
 const NavBar =()=>{
     const {currentUser} = useSelector(state=>state.user)
@@ -21,7 +21,7 @@ const NavBar =()=>{
             <div className="user">
                 <MdMissedVideoCall/>
             <div className ="avator">
-                <FaUserAlt/>
+                <img src={currentUser.img} alt=""/>
                 </div>
                 {currentUser.name}
             </div>
