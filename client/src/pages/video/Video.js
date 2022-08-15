@@ -9,10 +9,13 @@ import {useDispatch} from "react-redux"
 import {MdOutlineThumbUp} from "react-icons/md"
 import {BsHandThumbsDown} from "react-icons/bs"
 import {MdOutlineReplyAll} from "react-icons/md"
+import {FiThumbsUp} from "react-icons/fi"
+import {BsHandThumbsDownFill} from "react-icons/bs"
 import {MdAddTask} from "react-icons/md"
 import axios from 'axios'
-import { fetchSuccess } from '../../redux/videoSlice'
+import { fetchSuccess, like, dislike} from '../../redux/videoSlice'
 import { format } from 'timeago.js'
+import { subscriptin } from '../../redux/userSlice'
 
 
 
@@ -42,10 +45,32 @@ const Video = () =>{
   fetchData()
   },[path,dispatch])
   
+
+  const handleLike = async () =>{
+    await axios.put(`/users/like/${currentVideo._id}`)
+    dispatch(like(currentUser._id))
+  }
+
+
+  const handleDislike = async () =>{
+    await axios.put(`/users/dislike/${currentVideo._id}`)
+    dispatch(dislike(currentUser._id))
+
+  }
+
+  const handleSubscribe = async () =>{
+    currentUser.subscribedUsers.includes(channel._id) 
+    ? await axios.put(`/users/unsub/${channel._id}`)
+    : await axios.put(`/users/sub/${channel._id}`)
+    dispatch(subscriptin(channel._id))
+
+  }
+
   return (
     <div className="container">
       <div className="content">
         <div className='video-wrapper'>
+          <div className='video_frame'src={currentVideo.videoUrl}></div>
           <iframe
             width="100%"
             height="720"
@@ -60,11 +85,15 @@ const Video = () =>{
         <div className='details'>
           {/* <h6>{currentVideo.views} views • {format(currentVideo.createdAt)}</h6> */}
           <div className='buttons'>
-            <button className='button'>
-              {/* <MdOutlineThumbUp /> {currentVideo.likes?.length} */}
+            <button className='button' onClick={handleLike}>
+              {currentVideo.likes?.includes(currentUser._id) ? (<FiThumbsUp/>):
+              (<MdOutlineThumbUp />)}{""}
+                {currentVideo.likes?.length}
             </button>
-            <button className='button'>
-              <BsHandThumbsDown /> Dislike
+            <button className='button' onClick={handleDislike}>
+            {currentVideo.likes?.includes(currentUser._id) ? (<BsHandThumbsDownFill/>): 
+              (<BsHandThumbsDown />)}{""} 
+              Dislike
             </button>
             <button className='button'>
               <MdOutlineReplyAll /> Share
@@ -83,11 +112,17 @@ const Video = () =>{
               <h5 className='channel-name'>{channel.name}</h5>
               <div className ="channel-counter">{channel.subscribers} subscribers</div>
               <p className='description'>
+                best 
                 {/* {currentVideo.desc} */}
               </p>
             </div>
           </div>
-          <h5 className ="Subscribe">SUBSCRIBE</h5>
+          <button className ="Subscribe" onClick={handleSubscribe}> 
+          {currentUser.subscribedUsers?.includes(channel._id)?
+          "SUBSCRIBE" :
+          "SUBSCRIBED"}
+          SUBSCRIBE
+           </button>
         </div>
         <div />
         <Comments/>

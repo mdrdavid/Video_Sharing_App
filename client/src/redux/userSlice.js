@@ -16,7 +16,7 @@ export const userSlice = createSlice({
       },
       loginSuccess: (state, action)=>{
         state.loading=false
-        state.user = action.payload
+        state.currendUser = action.payload
     },
     loginFailure: (state)=>{
         state.loading=false
@@ -24,10 +24,22 @@ export const userSlice = createSlice({
     },
     logout:(state)=>{
         state= initialState
+    },
+    subscriptin: (state, action)=>{
+      if(state.currentUser.subscribedUsers.includes(action.payload)){
+        state.currentUser.subscribedUsers.splice(
+          state.currentUser.subscribedUsers.findInde(
+            (channelId)=>channelId=== action.payload
+          ),1
+        );
+
+      }else{
+        state.currentUser.subscribedUsers.push(action.payload)
+      }
     }
     },
   })
 
-  export const{loginStart, loginSuccess, loginFailure, logout}= userSlice.actions
+  export const{loginStart, loginSuccess, loginFailure, logout, subscriptin}= userSlice.actions
 
   export default userSlice.reducer
