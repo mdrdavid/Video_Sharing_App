@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import SignIn from './pages/signin/Signin';
+import Video from './pages/video/Video';
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
 
                   <Route path="signin" element={<SignIn />} />
 
-                  {/* <Route path="video">
+                  <Route path="video">
                     <Route path=":id" element={<Video />} />
-                  </Route> */}
+                  </Route>
                 </Route>
               </Routes>
     </div>

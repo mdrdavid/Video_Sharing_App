@@ -4,7 +4,7 @@ import "./comments.css"
 const  Comments =() => {
   return (
     <div className='container'>
-      <img src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" />
+      <img src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" alt=''/>
       <div className='details'>
         <p className='name'>
           John Doe <span className='date'>1 day ago</span>
