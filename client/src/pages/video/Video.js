@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import "./video.css"
 import Card from "../../components/videocard/Card"
-import Comments from '../../components/comments/Comments'
+import Comments from '../../components/comments/Comment'
 import { useSelector } from 'react-redux'
 import { useLocation} from 'react-router-dom';
 import {useDispatch} from "react-redux"
@@ -125,7 +125,7 @@ const Video = () =>{
            </button>
         </div>
         <div />
-        <Comments/>
+        <Comments videoId={currentVideo._id}/>
       </div>
       {/* <div className='recommendations'>
         <Card type="sm"/>
