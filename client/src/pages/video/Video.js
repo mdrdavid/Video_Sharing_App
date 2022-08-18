@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import "./video.css"
 import Card from "../../components/videocard/Card"
-import Comments from '../../components/comments/Comment'
+import Comments from '../../components/comments/Comments'
 import { useSelector } from 'react-redux'
 import { useLocation} from 'react-router-dom';
 import {useDispatch} from "react-redux"
@@ -47,19 +47,19 @@ const Video = () =>{
   
 
   const handleLike = async () =>{
-    await axios.put(`/users/like/${currentVideo._id}`)
+    await axios.put(`/users/like/${currentVideo?._id}`)
     dispatch(like(currentUser._id))
   }
 
 
   const handleDislike = async () =>{
-    await axios.put(`/users/dislike/${currentVideo._id}`)
+    await axios.put(`/users/dislike/${currentVideo?._id}`)
     dispatch(dislike(currentUser._id))
 
   }
 
   const handleSubscribe = async () =>{
-    currentUser.subscribedUsers.includes(channel._id) 
+    currentUser?.subscribedUsers.includes(channel._id) 
     ? await axios.put(`/users/unsub/${channel._id}`)
     : await axios.put(`/users/sub/${channel._id}`)
     dispatch(subscriptin(channel._id))
@@ -67,10 +67,10 @@ const Video = () =>{
   }
 
   return (
-    <div className="container">
+    <div className="video_container">
       <div className="content">
         <div className='video-wrapper'>
-          <div className='video_frame'src={currentVideo.videoUrl}></div>
+          <div className='video_frame'src={currentVideo?.videoUrl}></div>
           <iframe
             width="100%"
             height="720"
@@ -81,17 +81,17 @@ const Video = () =>{
             allowfullscreen
           ></iframe>
         </div>
-        {/* <h5 className='title'>{currentVideo.title}</h5> */}
+        <h5 className='title'>{currentVideo?.title}</h5>
         <div className='details'>
-          {/* <h6>{currentVideo.views} views • {format(currentVideo.createdAt)}</h6> */}
+          <h6>{currentVideo?.views} views • {format(currentVideo?.createdAt)}</h6>
           <div className='buttons'>
             <button className='button' onClick={handleLike}>
-              {currentVideo.likes?.includes(currentUser._id) ? (<FiThumbsUp/>):
+              {currentVideo?.likes?.includes(currentUser?._id) ? (<FiThumbsUp/>):
               (<MdOutlineThumbUp />)}{""}
-                {currentVideo.likes?.length}
+                {currentVideo?.likes?.length}
             </button>
             <button className='button' onClick={handleDislike}>
-            {currentVideo.likes?.includes(currentUser._id) ? (<BsHandThumbsDownFill/>): 
+            {currentVideo?.likes?.includes(currentUser?._id) ? (<BsHandThumbsDownFill/>): 
               (<BsHandThumbsDown />)}{""} 
               Dislike
             </button>
@@ -106,26 +106,23 @@ const Video = () =>{
         <div  className='hr'/>
         <div className='channel'>
           <div className="channel-Info">
-            {/* <img src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" alt='img'/> */}
             <img src={channel.img} alt=''/>
             <div className="channelDetail">
               <h5 className='channel-name'>{channel.name}</h5>
               <div className ="channel-counter">{channel.subscribers} subscribers</div>
               <p className='description'>
-                best 
-                {/* {currentVideo.desc} */}
+                {currentVideo?.desc}
               </p>
             </div>
           </div>
           <button className ="Subscribe" onClick={handleSubscribe}> 
-          {currentUser.subscribedUsers?.includes(channel._id)?
+          {currentUser?.subscribedUsers?.includes(channel._id)?
           "SUBSCRIBE" :
           "SUBSCRIBED"}
-          SUBSCRIBE
            </button>
         </div>
         <div />
-        <Comments videoId={currentVideo._id}/>
+        <Comments videoId={currentVideo?._id}/>
       </div>
       {/* <div className='recommendations'>
         <Card type="sm"/>

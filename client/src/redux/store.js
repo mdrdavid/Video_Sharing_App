@@ -27,7 +27,8 @@ const rootReducer =combineReducers({user: userReducer, video: videoReducer})
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: 
+  persistedReducer,
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -39,6 +40,7 @@ export const store = configureStore({
   //   user: userReducer,
   //   video: videoReducer
   // },
+
 })
 
 export const persistor = persistStore(store)
