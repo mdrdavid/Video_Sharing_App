@@ -1,9 +1,10 @@
 
 import React from "react";
 
+
 import { AiFillHome } from "react-icons/ai";
 import { MdExplore,} from "react-icons/md";
-import { MdOutlineWatchLater } from "react-icons/md";
+import { FaSignInAlt } from "react-icons/fa";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { MdOutlineVideoLibrary } from "react-icons/md";
 import { MdHistory } from "react-icons/md";
@@ -41,7 +42,9 @@ const getIcon = (iconName) => {
       icon = <MdHistory />
       break;
     case "watch":
-      icon = <MdOutlineWatchLater />;
+      icon = <Link to="/signin" style={{ textDecoration: "none", color: "blue" }}>
+      <FaSignInAlt />
+      </Link>
       break;
     case "videos":
       icon = <BiLike />

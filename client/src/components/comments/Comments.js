@@ -25,8 +25,8 @@ const Comments = ({videoId}) => {
     <div className="container">
       <div className="new_comment">
         {/* <Avatar src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" /> */}
-        <div className="avator"/>
-        <img src={currentUser?.img} alt=''/>
+        <div className="ava"/>
+        <img src={currentUser?.img} alt=''className='avator'/>
         <div>
         <input placeholder="Add a comment..." />
         </div>
