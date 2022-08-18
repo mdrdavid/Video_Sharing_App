@@ -8,7 +8,7 @@ const sideBarLinks = {
   home: [{ name: "Home", icon: "home" }, { name: "Explore", icon: "explore" ,link:"type"},
   { name: "Subscription", icon: "subscription" },],
   library: [{ name: "Library", icon: "library" }, { name: "History", icon: "history" },
-  { name: "WatchLater", icon: "watch" }, { name: "Liked Videos", icon: "videos" },
+  { name: "Signin", icon: "watch" }, { name: "Liked Videos", icon: "videos" },
   { name: "Javascript Turtorial", icon: "jsturtorial" },],
   subscription: [{ name: "Simplearn", icon: "simplearn" }, { name: "Nollywood", icon: "nollywood" },
   { name: "Set India", icon: "setindia" }, { name: "Music", icon: "music" }, { name: "Tv", icon: "tv" },],

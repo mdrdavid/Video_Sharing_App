@@ -72,11 +72,15 @@
   align-items: center;
   gap: 10px;
   font-weight: 500;
+  color:white;
 }
 
 .avator{
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: purple;
+}
+.icon{
+  font-size: 40px;
 }

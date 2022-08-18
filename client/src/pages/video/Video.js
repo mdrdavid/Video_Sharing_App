@@ -9,13 +9,14 @@ import {useDispatch} from "react-redux"
 import {MdOutlineThumbUp} from "react-icons/md"
 import {BsHandThumbsDown} from "react-icons/bs"
 import {MdOutlineReplyAll} from "react-icons/md"
-import {FiThumbsUp} from "react-icons/fi"
+import {FaThumbsUp} from "react-icons/fa"
 import {BsHandThumbsDownFill} from "react-icons/bs"
 import {MdAddTask} from "react-icons/md"
 import axios from 'axios'
 import { fetchSuccess, like, dislike} from '../../redux/videoSlice'
 import { format } from 'timeago.js'
 import { subscriptin } from '../../redux/userSlice'
+import NavBar from '../../components/navbar/NavBar'
 
 
 
@@ -47,7 +48,7 @@ const Video = () =>{
   
 
   const handleLike = async () =>{
-    await axios.put(`/users/like/${currentVideo?._id}`)
+    await axios.put(`/users/like/${currentVideo._id}`)
     dispatch(like(currentUser._id))
   }
 
@@ -67,11 +68,15 @@ const Video = () =>{
   }
 
   return (
+    <>
+    <NavBar/>
     <div className="video_container">
       <div className="content">
         <div className='video-wrapper'>
-          <div className='video_frame'src={currentVideo?.videoUrl}></div>
-          <iframe
+          <div className='video_frame'>
+            <img src={currentVideo?.videoUrl} alt=''/>
+          </div>
+          {/* <iframe
             width="100%"
             height="720"
             src="https://www.youtube.com/embed/k3Vfj-e1Ma4"
@@ -79,14 +84,14 @@ const Video = () =>{
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-          ></iframe>
+          ></iframe> */}
         </div>
         <h5 className='title'>{currentVideo?.title}</h5>
         <div className='details'>
           <h6>{currentVideo?.views} views • {format(currentVideo?.createdAt)}</h6>
           <div className='buttons'>
             <button className='button' onClick={handleLike}>
-              {currentVideo?.likes?.includes(currentUser?._id) ? (<FiThumbsUp/>):
+              {currentVideo?.likes?.includes(currentUser?._id) ? (<FaThumbsUp/>):
               (<MdOutlineThumbUp />)}{""}
                 {currentVideo?.likes?.length}
             </button>
@@ -140,6 +145,7 @@ const Video = () =>{
         <Card type="sm"/>
       </div> */}
     </div >
+    </>
   )
 }
 export default Video
