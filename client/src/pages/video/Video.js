@@ -44,14 +44,14 @@ const Video = () =>{
   
 
   const handleLike = async () =>{
-    await axios.put(`/users/like/${currentVideo._id}`)
-    dispatch(like(currentUser._id))
+    await axios.put(`/users/like/${currentVideo?._id}`)
+    dispatch(like(currentUser?._id))
   }
 
 
   const handleDislike = async () =>{
     await axios.put(`/users/dislike/${currentVideo?._id}`)
-    dispatch(dislike(currentUser._id))
+    dispatch(dislike(currentUser?._id))
 
   }
 
@@ -69,9 +69,9 @@ const Video = () =>{
     <div className="video_container">
       <div className="content">
         <div className='video-wrapper'>
-          <div className='video_frame'>
+          <div className='video_frame' controls>
             <img src={currentVideo?.videoUrl} alt='' style={{ width:"100%",
-            height:"720"}}/>
+            height:"720"}} controls/>
           </div>
           {/* <iframe
             width="100%"
