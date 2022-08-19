@@ -22,13 +22,10 @@ import NavBar from '../../components/navbar/NavBar'
 
 const Video = () =>{
   const {currentUser} = useSelector((state)=>state.user)
-  console.log(currentUser)
   const {currentVideo} = useSelector((state)=>state.video)
-  console.log(currentVideo)
   const dispatch = useDispatch()
   const path = useLocation().pathname.split("/")[2]
 
-  // const [video, SetVideo] =useState({})
   const [channel, SetChannel] =useState({})
 
   useEffect(()=>{
@@ -37,7 +34,6 @@ const Video = () =>{
       const videoRes = await axios.get(`/videos/find/${path}`)
       const channelRes = await axios.get(`/users/find/${videoRes.data.userId}`)
 
-      // SetVideo(videoRes.data)
       SetChannel(channelRes.data)
       dispatch(fetchSuccess(videoRes.data))
 
@@ -74,7 +70,8 @@ const Video = () =>{
       <div className="content">
         <div className='video-wrapper'>
           <div className='video_frame'>
-            <img src={currentVideo?.videoUrl} alt=''/>
+            <img src={currentVideo?.videoUrl} alt='' style={{ width:"100%",
+            height:"720"}}/>
           </div>
           {/* <iframe
             width="100%"

@@ -22,7 +22,7 @@ const Comments = ({videoId}) => {
     fetchComments()
   },[videoId])
   return (
-    <div className="container">
+    <div className="comment_container">
       <div className="new_comment">
         <div className="ava"/>
         <img src={currentUser?.img} alt=''className='avator'/>
