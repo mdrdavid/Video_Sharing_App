@@ -38,9 +38,6 @@ span{
     cursor: pointer;
 }
 
-.recommendation{
-    flex: 2;
-}
 
 .channel{
     display: flex;

@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
 import "./video.css"
-import Card from "../../components/videocard/Card"
 import Comments from '../../components/comments/Comments'
 import { useSelector } from 'react-redux'
 import { useLocation} from 'react-router-dom';
@@ -17,6 +16,7 @@ import { fetchSuccess, like, dislike} from '../../redux/videoSlice'
 import { format } from 'timeago.js'
 import { subscriptin } from '../../redux/userSlice'
 import NavBar from '../../components/navbar/NavBar'
+import { Recommendation } from '../../components/recommendation/Recommendation'
 
 
 
@@ -126,21 +126,7 @@ const Video = () =>{
         <div />
         <Comments videoId={currentVideo?._id}/>
       </div>
-      {/* <div className='recommendations'>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-        <Card type="sm"/>
-      </div> */}
+     <Recommendation tags={currentVideo?.tags}/>
     </div >
     </>
   )
