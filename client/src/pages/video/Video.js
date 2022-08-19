@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
+import styled from "styled-components";
 import "./video.css"
 import Comments from '../../components/comments/Comments'
 import { useSelector } from 'react-redux'
@@ -18,7 +19,10 @@ import { subscriptin } from '../../redux/userSlice'
 import NavBar from '../../components/navbar/NavBar'
 import { Recommendation } from '../../components/recommendation/Recommendation'
 
-
+const VideoFrame = styled.video`
+max-height: 720px;
+width: 100%;
+object-fit: cover`;
 
 const Video = () =>{
   const {currentUser} = useSelector((state)=>state.user)
@@ -69,10 +73,7 @@ const Video = () =>{
     <div className="video_container">
       <div className="content">
         <div className='video-wrapper'>
-          <div className='video_frame' controls>
-            <img src={currentVideo?.videoUrl} alt='' style={{ width:"100%",
-            height:"720"}} controls/>
-          </div>
+          <VideoFrame className='videoframe' src={currentVideo?.videoUrl} controls/>
           {/* <iframe
             width="100%"
             height="720"
