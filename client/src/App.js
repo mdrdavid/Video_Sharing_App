@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import SignIn from './pages/signin/Signin';
 import Video from './pages/video/Video';
+import Search from './components/navbar/Search';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
                   <Route path="trends" element={<Home type="trends"/>} />
                   <Route path="subscriptions" element={<Home type="sub"/>} />
+                  <Route path="search" element={<Search/>} />
 
                   <Route path="signin" element={<SignIn />} />
 
