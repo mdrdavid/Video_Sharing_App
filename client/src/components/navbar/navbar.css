@@ -1,0 +1,86 @@
+
+.nav-container{
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    height: 56px;
+    background-color: grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+.logo img{
+    height: 25px;
+}
+
+.search{
+  width: 500px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.search-input{
+
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+.input-icon{
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.button{
+    padding: 5px 15px;
+    margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color:white;
+}
+
+.avator{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: purple;
+}
+.icon{
+  font-size: 40px;
+}

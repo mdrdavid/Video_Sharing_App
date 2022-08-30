@@ -1,0 +1,13 @@
+
+.video-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    float: right;
+}
+.my-container{
+    display: flex;
+    gap: 10px
+}
