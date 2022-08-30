@@ -6,7 +6,7 @@ const Logo =() =>{
   return (
     <div className='logo'>
         <img src={youtube} alt='logo'/>
-        Lama Video
+        Mdr2021 Video
         </div>
   )
 }

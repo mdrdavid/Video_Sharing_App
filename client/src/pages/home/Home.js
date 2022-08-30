@@ -10,8 +10,13 @@ const Home = ({type}) => {
 
     useEffect(() => {
         const fetchVideos = async () => {
-            const res = await axios.get(`videos/${type}`)
+            try {
+                const res = await axios.get(`http://localhost:8080/api/videos/${type}`)
             setVideos(res.data)
+            } catch (error) {
+                console.log("error", JSON.stringify(error))
+            }
+            
         }
         fetchVideos()
     }, [type])

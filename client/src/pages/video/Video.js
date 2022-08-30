@@ -37,11 +37,10 @@ const Video = () =>{
     try{
       const videoRes = await axios.get(`/videos/find/${path}`)
       const channelRes = await axios.get(`/users/find/${videoRes.data.userId}`)
-
       SetChannel(channelRes.data)
       dispatch(fetchSuccess(videoRes.data))
 
-    }catch(err){}
+    }catch(error){}
   }
   fetchData()
   },[path,dispatch])
@@ -66,7 +65,7 @@ const Video = () =>{
     dispatch(subscriptin(channel._id))
 
   }
-
+ console.log(currentVideo)
   return (
     <>
     <NavBar/>
