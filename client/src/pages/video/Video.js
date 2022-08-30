@@ -36,8 +36,8 @@ const Video = () =>{
   useEffect(()=>{
     const fetchData = async()=>{
     try{
-      const videoRes = await axios.get(`http://localhost:8080/api/videos/find/${path}`)
-      const channelRes = await axios.get(`http://localhost:8080/api/users/find/${videoRes.data.userId}`)
+      const videoRes = await axios.get(`/videos/find/${path}`)
+      const channelRes = await axios.get(`/users/find/${videoRes.data.userId}`)
       SetChannel(channelRes.data)
       dispatch(fetchSuccess(videoRes.data))
 

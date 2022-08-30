@@ -18,13 +18,13 @@ const sideBarLinks = {
   { name: "Send Feedback", icon: "feedback" },]
 }
 
-const generateLinkContiner = () =>{
+const GenerateLinkContiner = () =>{
   const newContainer =[]
   for(const[,value] of Object.entries(sideBarLinks)){
-  newContainer.push(
+  newContainer.push( 
     <div className= "link-container">
     {value.map((link) => {
-          return <Sidelinks link={link} />;
+          return <Sidelinks link={link}  key={link.id}/>;
         })}
     </div>
   )
@@ -37,7 +37,7 @@ const Menu = () => {
   return (
     <>
       <div className="sidebar">
-        {generateLinkContiner()}
+        <GenerateLinkContiner/>
       </div>
     </>
   );

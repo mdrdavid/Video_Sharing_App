@@ -10,8 +10,12 @@ const Search = () => {
     const query = useLocation().search
     useEffect(()=>{
         const fetchVideos = async ()=>{
+          try {
             const res = await axios.get(`videos/search${query}`)
             setVideos(res.data)
+          } catch (error) {
+          }
+            
         }
         fetchVideos()
     },[query])
