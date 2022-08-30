@@ -12,7 +12,6 @@ const Card =({type, video})=>{
     useEffect(() => {
         const fetchChannel = async () => {
             try {
-                console.log("video", video)
                 const res = await axios.get(`http://localhost:8080/api/users/find/${video.userId}`)
     
             setChannel(res.data)

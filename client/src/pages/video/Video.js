@@ -27,6 +27,7 @@ object-fit: cover`;
 const Video = () =>{
   const {currentUser} = useSelector((state)=>state.user)
   const {currentVideo} = useSelector((state)=>state.video)
+  console.log("my video", currentVideo)
   const dispatch = useDispatch()
   const path = useLocation().pathname.split("/")[2]
 
@@ -75,7 +76,6 @@ const Video = () =>{
     
 
   }
- console.log(currentVideo)
   return (
     <>
     <NavBar/>
