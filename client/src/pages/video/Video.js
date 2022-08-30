@@ -45,24 +45,34 @@ const Video = () =>{
   fetchData()
   },[path,dispatch])
   
-
   const handleLike = async () =>{
-    await axios.put(`/users/like/${currentVideo?._id}`)
+    try {
+      await axios.put(`/users/like/${currentVideo?._id}`)
     dispatch(like(currentUser?._id))
+    } catch (error) {
+      
+    }
   }
 
-
   const handleDislike = async () =>{
-    await axios.put(`/users/dislike/${currentVideo?._id}`)
+    try {
+      await axios.put(`/users/dislike/${currentVideo?._id}`)
     dispatch(dislike(currentUser?._id))
-
+    } catch (error) {
+      
+    }
   }
 
   const handleSubscribe = async () =>{
-    currentUser?.subscribedUsers.includes(channel._id) 
-    ? await axios.put(`/users/unsub/${channel._id}`)
+    try {
+      currentUser?.subscribedUsers.includes(channel._id) 
+      ? await axios.put(`/users/unsub/${channel._id}`)
     : await axios.put(`/users/sub/${channel._id}`)
     dispatch(subscriptin(channel._id))
+    } catch (error) {
+      
+    }
+    
 
   }
  console.log(currentVideo)
